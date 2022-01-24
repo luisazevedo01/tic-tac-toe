@@ -1,11 +1,13 @@
 import "./Square.styles.scss";
 
-const Square = (props) => {
-  return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
-};
+const Square = ({ value, onClick }) => (
+  <button
+    className="square"
+    onClick={onClick}
+    style={{ color: value === "X" ? "skyblue" : "orange" }}
+  >
+    {value}
+  </button>
+);
 
 export default Square;
