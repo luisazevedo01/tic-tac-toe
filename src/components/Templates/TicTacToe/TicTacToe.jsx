@@ -8,6 +8,7 @@ import {
 } from "../../../slices/TicTacToeSlice";
 import Board from "../../Organisms/Board/Board";
 import BoardHeader from "../../Organisms/BoardHeader/BoardHeader";
+import EndDialog from "../../Organisms/EndDialog/EndDialog";
 
 export default function TicTacToe() {
   /** List of all the squares on the board */
@@ -33,6 +34,7 @@ export default function TicTacToe() {
 
   return (
     <Fragment>
+      {winner && <EndDialog winner={winner} />}
       <BoardHeader currentPlayer={currentPlayer} />
       <Board squares={squares} handleClick={handlePlay} />
     </Fragment>
