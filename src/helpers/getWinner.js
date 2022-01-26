@@ -15,5 +15,6 @@ export default function getWinner(squares) {
       return squares[a];
     }
   }
-  return null;
+  if (!squares.some((x) => x === null)) return "T";
+  return undefined;
 }

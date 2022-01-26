@@ -1,0 +1,31 @@
+.board-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  color: black;
+  
+  .board-footer_x-wins {
+    background-color: skyblue;
+  }
+  
+  .board-footer_o-wins {
+    background-color: orange;
+  }
+
+  span {
+    background-color: lightgrey;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    strong: {
+      margin-top: 3px;
+    }
+  }
+
+
+
+
+}

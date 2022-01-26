@@ -6,7 +6,8 @@ export const slice = createSlice({
   initialState: {
     squares: Array(9).fill(null),
     currentPlayer: "O",
-    winner: null
+    winner: undefined,
+    scores: { x: 0, t: 0, o: 0 }
   },
   reducers: {
     setNextPlayer: (state) => {
@@ -17,11 +18,23 @@ export const slice = createSlice({
     },
     setSquares: (state, action) => {
       state.squares = action.payload;
+    },
+    setWinner: (state, action) => {
+      state.winner = action.payload;
+    },
+    setScores: (state, action) => {
+      state.scores = { ...action.payload };
     }
   }
 });
 
-export const { setNextPlayer, checkWinner, setSquares } = slice.actions;
+export const {
+  setNextPlayer,
+  checkWinner,
+  setSquares,
+  setWinner,
+  setScores
+} = slice.actions;
 
 export const selectCurrentPlayer = (state) => state.TicTacToe.currentPlayer;
 
