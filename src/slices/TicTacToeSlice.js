@@ -10,7 +10,7 @@ export const slice = createSlice({
     scores: { x: 0, t: 0, o: 0 }
   },
   reducers: {
-    setNextPlayer: (state) => {
+    changePlayer: (state) => {
       state.currentPlayer = state.currentPlayer === "X" ? "O" : "X";
     },
     checkWinner: (state) => {
@@ -29,7 +29,7 @@ export const slice = createSlice({
 });
 
 export const {
-  setNextPlayer,
+  changePlayer,
   checkWinner,
   setSquares,
   setWinner,

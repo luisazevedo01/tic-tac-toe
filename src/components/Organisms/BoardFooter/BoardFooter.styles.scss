@@ -13,15 +13,13 @@
   }
 
   span {
+    display:flex;
     background-color: lightgrey;
     border-radius: 8px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    padding: 10px 5px;
 
-    strong: {
-      margin-top: 3px;
+    * {
+      padding: 0px 5px;
     }
   }
 

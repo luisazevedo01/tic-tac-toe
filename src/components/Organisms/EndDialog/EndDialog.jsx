@@ -17,7 +17,8 @@ const EndDialog = ({ winner, ...otherProps }) => {
         <section>
           <h3>YOU WON!</h3>
           <h1 style={{ color: winner === "X" ? "skyblue" : "orange" }}>
-            <strong>{winner}</strong> takes the round{" "}
+            <strong className="end-dialog_winner">{winner}</strong> takes the
+            round
           </h1>
         </section>
       )}

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   checkWinner,
   selectCurrentPlayer,
-  setNextPlayer,
+  changePlayer,
   setScores,
   setSquares,
   setWinner
@@ -20,6 +20,8 @@ export default function TicTacToe() {
   const winner = useSelector((state) => state.TicTacToe.winner);
   /** Players scores*/
   const scores = useSelector((state) => state.TicTacToe.scores);
+  /** Match history */
+  const [history, setHistory] = useState([Array(9).fill(null)]);
   /** Player with the move */
   const currentPlayer = useSelector(selectCurrentPlayer);
   /** Dispatch function from redux store */
@@ -32,8 +34,8 @@ export default function TicTacToe() {
     if (copySquares[i] || winner) return;
     copySquares[i] = currentPlayer;
 
-    dispatch(setSquares(copySquares));
-    dispatch(setNextPlayer());
+    setHistory((curr) => [...curr, copySquares]);
+    updateBoard(copySquares);
     dispatch(checkWinner());
   };
 
@@ -50,7 +52,7 @@ export default function TicTacToe() {
           break;
         }
         default: {
-          currScores.t = currScores.x + 1;
+          currScores.t = currScores.t + 1;
         }
       }
       dispatch(setScores(currScores));
@@ -59,10 +61,26 @@ export default function TicTacToe() {
     dispatch(setWinner(undefined));
   };
 
+  /** Set correct player and draw squares */
+  const updateBoard = (squares) => {
+    dispatch(changePlayer());
+    dispatch(setSquares(squares));
+  };
+
+  /** Handles the redo and updates the board */
+  const redoPlay = () => {
+    const newHistory = history.slice();
+    if (history.length < 2) return;
+    newHistory.pop();
+    setHistory(newHistory);
+
+    updateBoard(newHistory[newHistory.length - 1]);
+  };
+
   return (
     <Fragment>
       {winner && <EndDialog winner={winner} handleClose={closeEndDialog} />}
-      <BoardHeader currentPlayer={currentPlayer} />
+      <BoardHeader currentPlayer={currentPlayer} onRedo={redoPlay} />
       <Board squares={squares} handleClick={handlePlay} />
       <BoardFooter scores={scores} />
     </Fragment>

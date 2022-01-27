@@ -1,16 +1,20 @@
 import "./BoardFooter.styles.scss";
+import { BiRightArrow } from "react-icons/bi";
 
 const BoardFooter = ({ scores }) => {
   return (
     <section className="board-footer">
       <span className="board-footer_o-wins">
-        O (orange)<strong>{scores.o}</strong>
+        O<BiRightArrow />
+        <strong>{scores.o}</strong>
       </span>
       <span>
-        Ties <strong>{scores.t}</strong>
+        Ties <BiRightArrow />
+        <strong>{scores.t}</strong>
       </span>
       <span className="board-footer_x-wins">
-        X (blue)<strong>{scores.x}</strong>
+        X<BiRightArrow />
+        <strong>{scores.x}</strong>
       </span>
     </section>
   );

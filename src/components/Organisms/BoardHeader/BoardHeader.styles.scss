@@ -17,4 +17,12 @@
     padding: 5px;
     border-radius: 5px;
   }
+
+  .board-header_redo {
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 0 8px;
+  }
 }

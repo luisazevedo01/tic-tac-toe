@@ -1,6 +1,11 @@
 import "./BoardHeader.styles.scss";
+import { FaRedoAlt } from "react-icons/fa";
 
-const BoardHeader = ({ currentPlayer }) => {
+const BoardHeader = ({ currentPlayer, onRedo }) => {
+  const handleRedo = () => {
+    onRedo();
+  };
+
   return (
     <div className="board-header">
       <section className="board-header_players">
@@ -16,7 +21,9 @@ const BoardHeader = ({ currentPlayer }) => {
         <b>{currentPlayer}</b> TURN
       </span>
 
-      <button>Back</button>
+      <button onClick={handleRedo} className="board-header_redo">
+        <FaRedoAlt />
+      </button>
     </div>
   );
 };
