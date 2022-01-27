@@ -1,12 +1,18 @@
 import "./EndDialog.styles.scss";
-
-const EndDialog = ({ winner, ...otherProps }) => {
+/**
+ * EndDialog
+ * @param {string} winner
+ * @param {object} handleClose
+ */
+const EndDialog = ({ winner, handleClose }) => {
+  /** Handles restart click */
   const onRestart = () => {
-    otherProps.handleClose();
+    handleClose();
   };
 
+  /** Handles next round click */
   const onNext = () => {
-    otherProps.handleClose(true);
+    handleClose(true);
   };
 
   return (
@@ -15,7 +21,7 @@ const EndDialog = ({ winner, ...otherProps }) => {
         <h1>It's a tie.</h1>
       ) : (
         <section>
-          <h3>YOU WON!</h3>
+          <h3>Congrats! YOU WON!</h3>
           <h1 style={{ color: winner === "X" ? "skyblue" : "orange" }}>
             <strong className="end-dialog_winner">{winner}</strong> takes the
             round

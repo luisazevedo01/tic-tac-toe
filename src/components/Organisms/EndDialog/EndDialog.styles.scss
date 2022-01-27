@@ -23,7 +23,7 @@
     margin-bottom: 15px;
 
     * {
-      padding: 15px 45px;
+      padding: 10px 35px;
       border-radius: 5px;
       font-size: 1rem;
       font-weight: bold;
@@ -45,3 +45,13 @@
     text-decoration: underline;
   }
 }
+
+@media screen and (max-width: 500px){
+ .end-dialog {
+   bottom: 27vh;
+   h1{
+     font-size: 2.2rem;
+   }
+ }
+}
+

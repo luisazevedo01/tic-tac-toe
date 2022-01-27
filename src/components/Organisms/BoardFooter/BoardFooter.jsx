@@ -1,6 +1,9 @@
 import "./BoardFooter.styles.scss";
 import { BiRightArrow } from "react-icons/bi";
-
+/**
+ * BoardFooter
+ * @param {object} scores
+ */
 const BoardFooter = ({ scores }) => {
   return (
     <section className="board-footer">

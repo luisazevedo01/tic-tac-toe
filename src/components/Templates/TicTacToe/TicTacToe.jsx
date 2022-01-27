@@ -57,6 +57,7 @@ export default function TicTacToe() {
       }
       dispatch(setScores(currScores));
     }
+    setHistory([Array(9).fill(null)]);
     dispatch(setSquares(Array(9).fill(null)));
     dispatch(setWinner(undefined));
   };

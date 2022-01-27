@@ -1,7 +1,13 @@
 import "./BoardHeader.styles.scss";
 import { FaRedoAlt } from "react-icons/fa";
 
+/**
+ * BoardHeader
+ * @param {string} currentPlayer
+ * @param {Function} onRedo
+ */
 const BoardHeader = ({ currentPlayer, onRedo }) => {
+  /** Handles the redo click */
   const handleRedo = () => {
     onRedo();
   };
